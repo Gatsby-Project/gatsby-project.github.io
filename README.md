@@ -10,8 +10,14 @@ This repository uses a single project board for the entire repository. Issues an
 This is an issue being created that will then be made as a card within a `To-do` column in the board. The cards can also be automated to move whenever the progress status of each issues/PR is changed until it reaches completion.
 
 ![alt text](https://i.gyazo.com/f7bb895e8cc9013ab84e84c39504064f.png)
-## Code Management
-This is a PR test
+
+### Issues and Milestones
+Issues can be made within each repository with assignees, milestones, and tags. Milestones act as a type of epic, allowing you to bundle multiple pull requests and issues into one milestone that has a deadline which can then be tracked in the project board.
+
+![alt text](https://i.gyazo.com/dcecb5ed85ff282791b211468ef1140d.png)
+
+![alt text](https://i.gyazo.com/63cd2beca024cad39f451998b7f5fccf.png)
+
 ## Security Scanning
 
 ## Secret Management
