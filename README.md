@@ -2,10 +2,16 @@
 
 # GitHub
 
-## Project Planning
+## Project Planning/Management
+This repository uses a single project board for the entire repository. Issues and PR's can be created that can go directly into the Kanban board for tracking.
 
+![alt text](https://i.gyazo.com/893f9a59c3bbe847f3bde59bcb460652.png)
+
+This is an issue being created that will then be made as a card within a `To-do` column in the board. The cards can also be automated to move whenever the progress status of each issues/PR is changed until it reaches completion.
+
+![alt text](https://i.gyazo.com/f7bb895e8cc9013ab84e84c39504064f.png)
 ## Code Management
-
+This is a PR test
 ## Security Scanning
 
 ## Secret Management
