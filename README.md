@@ -11,7 +11,7 @@
 ## Secret Management
 GitHub manages secrets within each repositories settings. You can easily add multiple secrets through the UI.
 
-![alt text](https://miro.medium.com/max/700/1*CcuLAS9gezSz-6d6Lydw3Q.png)
+![alt text](https://i.gyazo.com/9aad61bffbb845156b0909b909020200.png)
 
 For this repository, I only needed to use my own personal secret access token in order to have everything be deployed to GitHub Pages through the Actions pipeline.
 
@@ -58,8 +58,6 @@ This code uses an ubuntu image within the pipeline to run the specific Gatsby co
 
 To host your website code on GitHub Pages, it is as simple as going to the settings within your repository and selecting the "Pages" option in the menu. The repository does need to be public, but this will only make it public within the organization.
 
-![alt text](https://docs.github.com/assets/images/help/repository/repo-actions-settings.png)
-
-![alt text](https://docs.github.com/assets/images/help/pages/pages-tab.png)
+![alt text](https://i.gyazo.com/bcb6fcf9605ba3820e19a6d106245847.png)
 
 Link to getting started with GitHub Pages: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
