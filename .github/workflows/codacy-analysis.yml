@@ -48,7 +48,7 @@ jobs:
         with:
           sarif_file: results.sarif
   notify:
-    needs: build
+    needs: codacy-security-scan
     runs-on: ubuntu-latest
     steps:
       - name: Gatsby Publish
