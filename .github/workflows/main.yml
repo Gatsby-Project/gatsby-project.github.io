@@ -1,9 +1,8 @@
 name: Gatsby Publish
 
 on:
-  push:
-    branches:
-      - develop
+  repository_dispatch:
+    types: [trigger-gatsby-deploy]
 
 jobs:
   build:

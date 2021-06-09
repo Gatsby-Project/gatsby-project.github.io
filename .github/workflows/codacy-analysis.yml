@@ -47,3 +47,10 @@ jobs:
         uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: results.sarif
+      - name: Trigger Gatsby publish workflow if success
+        if: success()
+        uses: actions/checkout@v2
+        with:
+          event-type: trigger-gatsby-deploy
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+          
