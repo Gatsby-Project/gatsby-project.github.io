@@ -47,7 +47,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: results.sarif
-  notify:
+  Deploy Gatsby:
     needs: codacy-security-scan
     runs-on: ubuntu-latest
     steps:
