@@ -102,26 +102,70 @@ This specific repository uses a 3rd party GitHub Action from the GitHub Marketpl
 
 ### Main.yml
 ```
-name: Gatsby Publish
+# This workflow checks out code, performs a Codacy security scan
+# and integrates the results with the
+# GitHub Advanced Security code scanning feature.  For more information on
+# the Codacy security scan action usage and parameters, see
+# https://github.com/codacy/codacy-analysis-cli-action.
+# For more information on Codacy Analysis CLI in general, see
+# https://github.com/codacy/codacy-analysis-cli.
+
+name: Codacy Security Scan
 
 on:
   push:
-    branches:
-      - develop
+    branches: [ develop ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ develop ]
+  schedule:
+    - cron: '32 19 * * 5'
 
 jobs:
-  build:
+  codacy-security-scan:
+    name: Codacy Security Scan
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      # Checkout the repository to the GitHub Actions runner
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Execute Codacy Analysis CLI and generate a SARIF output with the security issues identified during the analysis
+      - name: Run Codacy Analysis CLI
+        uses: codacy/codacy-analysis-cli-action@1.1.0
+        with:
+          # Check https://github.com/codacy/codacy-analysis-cli#project-token to get your project token from your Codacy repository
+          # You can also omit the token and run the tools that support default configurations
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          verbose: true
+          output: results.sarif
+          format: sarif
+          # Adjust severity of non-security issues
+          gh-code-scanning-compat: true
+          # Force 0 exit code to allow SARIF file generation
+          # This will handover control about PR rejection to the GitHub side
+          max-allowed-issues: 2147483647
+
+      # Upload the SARIF file generated in the previous step
+      - name: Upload SARIF results file
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: results.sarif
+  deploy-gatsby:
+    needs: codacy-security-scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Gatsby Publish
+        uses: actions/checkout@v1
         with:
           ref: develop
-      - uses: enriikke/gatsby-gh-pages-action@v2
+      - name: Deploy
+        uses: enriikke/gatsby-gh-pages-action@v2
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: develop
 ```
-This code uses an ubuntu image within the pipeline to run the specific Gatsby commands to deploy the web app. This script is configured by me to only be ran when their are changes made to the `develop` branch and not the `main` branch. This integration also requires that I use my personal GitHub `ACCESS_TOKEN` that I have defined securely in the repository.
+This code uses an ubuntu image within the pipeline to run the specific Gatsby commands to deploy the web app. This script is configured by me to only be ran when their are changes made to the `develop` branch and not the `main` branch. This integration also requires that I use my personal GitHub `ACCESS_TOKEN` that I have defined securely in the repository. This Gatsby deploy on runs when the code scanning above passes as stated by the `needs: codacy-security-scan`.
 
 To host your website code on GitHub Pages, it is as simple as going to the settings within your repository and selecting the "Pages" option in the menu. The repository does need to be public, but this will only make it public within the organization.
 
