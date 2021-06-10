@@ -91,8 +91,6 @@ Link: https://github.com/marketplace/actions/gatsby-publish
 ## MFA
 This organization in GitHub as a whole requires it's members to have MFA enabled in order to join the organization. If they don't have MFA enabled on their own individual accounts, they cannot join. Also, if a member is already in the organization and does not have MFA enabled after the MFA rule is implemented in the organization, the member will be kicked from the organization.
 
-## Analytics
-
 # How this Gatsby project works
 
 ## Static Website Hosting through Github Pages
