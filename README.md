@@ -82,7 +82,7 @@ GitHub manages secrets within each repositories settings. You can easily add mul
 
 For this repository, I only needed to use my own personal secret access token in order to have everything be deployed to GitHub Pages through the Actions pipeline.
 
-![alt text](https://i.gyazo.com/cbd3c5f075582458f0c94bfcd4df8bad.png)
+
 ## Integrations
 Integrations that have been implemented in this project was a simple 3rd party GitHub Action from the GitHub Marketplace that allows for a seamless deployment pipeline to publish my Gatsby web application to GitHub Pages.
 
