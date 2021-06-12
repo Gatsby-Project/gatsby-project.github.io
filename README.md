@@ -2,6 +2,12 @@
 
 # GitHub
 
+## Editor Integrations
+
+
+## Analytics
+
+
 ## Project Planning/Management
 This repository uses a single project board for the entire repository. Issues and PR's can be created that can go directly into the Kanban board for tracking.
 
