@@ -3,7 +3,15 @@
 # GitHub
 
 ## Editor Integrations
+GitHub has plenty integration with popular editors, like VS Code for example.
 
+![alt text](https://code.visualstudio.com/assets/docs/editor/github/extension-signin.png)
+
+VS Code allows for direct sign in to GitHub through the GUI, and also allows for things ranging from commits, pulls, and even repository creation all without having to leave VS Code.
+
+![alt text](https://code.visualstudio.com/assets/docs/editor/github/pull-request-view.png)
+
+More on what you can do with GitHub and VS Code here: https://code.visualstudio.com/docs/editor/github
 
 ## Analytics
 
